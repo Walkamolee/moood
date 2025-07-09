@@ -62,8 +62,8 @@ export const performNightlyUpdate = async (): Promise<void> => {
 const refreshBudgetData = async (): Promise<void> => {
   try {
     // Dispatch actions to refresh data
-    store.dispatch(fetchBudgets() as any);
-    store.dispatch(fetchTransactions() as any);
+    store.dispatch(fetchBudgets());
+    store.dispatch(fetchTransactions());
     
     // Wait for data to be loaded
     await new Promise(resolve => setTimeout(resolve, 1000));
@@ -224,7 +224,7 @@ export const triggerManualUpdate = async (): Promise<void> => {
 };
 
 // Get last update information
-export const getLastUpdateInfo = async (): Promise<any> => {
+export const getLastUpdateInfo = async (): Promise<{ lastUpdate: Date | null; lastLog: any | null }> => {
   try {
     const lastUpdate = await AsyncStorage.getItem('lastNightlyUpdate');
     const lastLog = await AsyncStorage.getItem('lastUpdateLog');
