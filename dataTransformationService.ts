@@ -673,7 +673,7 @@ export class DataTransformationService {
     });
   }
 
-  private getTransactionFieldValue(transaction: Transaction, field: string): any {
+  private getTransactionFieldValue(transaction: Transaction, field: string): string | number {
     switch (field) {
       case 'description':
         return transaction.description;
@@ -690,7 +690,7 @@ export class DataTransformationService {
     }
   }
 
-  private evaluateCondition(fieldValue: any, condition: CategorizationCondition): boolean {
+  private evaluateCondition(fieldValue: string | number, condition: CategorizationCondition): boolean {
     const value = String(fieldValue);
     const conditionValue = String(condition.value);
 
@@ -798,7 +798,7 @@ export class DataTransformationService {
     return matrix[str2.length][str1.length];
   }
 
-  private async enrichLocation(location: any): Promise<any> {
+  private async enrichLocation(location: object): Promise<object | null> {
     // Placeholder for location enrichment
     // Would integrate with geocoding services
     return null;
