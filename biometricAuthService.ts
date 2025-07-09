@@ -320,10 +320,7 @@ export class BiometricAuthService {
   public async enrollBiometric(
     userId: string,
     type: BiometricType,
-    options: {
-      promptMessage?: string;
-      quality?: number;
-    } = {}
+    options: { promptMessage?: string; quality?: number; } = {}
   ): Promise<{
     success: boolean;
     templateId?: string;
