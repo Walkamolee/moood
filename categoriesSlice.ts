@@ -251,8 +251,8 @@ export const fetchCategories = createAsyncThunk(
     try {
       const categories = await mockFetchCategories();
       return categories;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -263,8 +263,8 @@ export const createCategory = createAsyncThunk(
     try {
       const newCategory = await mockCreateCategory(categoryData);
       return newCategory;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -278,8 +278,8 @@ export const updateCategory = createAsyncThunk(
     try {
       const updatedCategory = await mockUpdateCategory(categoryId, updates);
       return updatedCategory;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -290,8 +290,8 @@ export const deleteCategory = createAsyncThunk(
     try {
       await mockDeleteCategory(categoryId);
       return categoryId;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
