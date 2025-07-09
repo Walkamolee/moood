@@ -1,7 +1,3 @@
- * Audit Logger for Money Mood
- * Provides comprehensive audit logging for compliance and security
- */
-
 import { AuditLogEntry, AuditEventType } from '../types/financial';
 import { encryptionService, SecureStorage, DataSanitizer } from './encryption';
 import { config } from '../config/environment';
@@ -27,3 +23,18 @@ export class AuditLogger {
     }
     return AuditLogger.instance;
   }
+
+  private startQueueProcessor() {
+    // Placeholder for actual implementation
+  }
+
+  public async logEvent(eventType: AuditEventType, entityType: string, entityId: string, action: string, description: string, userId: string, metadata?: Record<string, any>) {
+    // Placeholder for actual implementation
+  }
+
+  public async logSecurityEvent(eventType: string, description: string, userId: string, severity: string, metadata?: Record<string, any>) {
+    // Placeholder for actual implementation
+  }
+}
+
+export const auditLogger = AuditLogger.getInstance();
