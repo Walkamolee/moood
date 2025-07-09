@@ -76,8 +76,8 @@ export const loginUser = createAsyncThunk(
       // Store token securely
       await setSecureItem('authToken', response.token);
       return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -90,8 +90,8 @@ export const registerUser = createAsyncThunk(
       // Store token securely
       await setSecureItem('authToken', response.token);
       return response;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -103,8 +103,8 @@ export const logoutUser = createAsyncThunk(
       // Remove token from secure storage
       await deleteSecureItem('authToken');
       return null;
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
@@ -131,8 +131,8 @@ export const checkAuthStatus = createAsyncThunk(
         },
         token,
       };
-    } catch (error: any) {
-      return rejectWithValue(error.message);
+    } catch (error: unknown) {
+      return rejectWithValue((error as Error).message);
     }
   }
 );
