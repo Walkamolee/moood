@@ -21,7 +21,7 @@ import {
  */
 interface SyncStatusDashboardProps {
   userId: string;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -269,7 +269,7 @@ export const SyncStatusDashboard: React.FC<SyncStatusDashboardProps> = ({
   style 
 }) => {
   const [syncStatus, setSyncStatus] = useState<{
-    configuration: any;
+    configuration: SyncConfiguration;
     activeJobs: SyncJob[];
     recentJobs: SyncJob[];
     statistics: SyncStatistics | null;
@@ -307,7 +307,7 @@ export const SyncStatusDashboard: React.FC<SyncStatusDashboardProps> = ({
   const startManualSync = async () => {
     try {
       await dataSynchronizationService.startSyncJob(userId, {
-        priority: 'high' as any,
+        priority: SyncPriority.HIGH,
       });
       await loadSyncStatus();
     } catch (error) {
