@@ -10,12 +10,13 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, StackNavigationProp } from '@react-navigation/native';
+import { AuthStackParamList } from '../navigation/AuthNavigator';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { registerUser, clearError } from '../../store/slices/authSlice';
 
 const RegisterScreen: React.FC = () => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<StackNavigationProp<AuthStackParamList>>();
   const dispatch = useAppDispatch();
   const { isLoading, error } = useAppSelector((state) => state.auth);
 
@@ -49,8 +50,8 @@ const RegisterScreen: React.FC = () => {
         password,
         confirmPassword,
       })).unwrap();
-    } catch (error: any) {
-      Alert.alert('Registration Failed', error);
+    } catch (error: unknown) {
+      Alert.alert('Registration Failed', (error as Error).message);
     }
   };
 
