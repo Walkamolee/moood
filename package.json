@@ -1,0 +1,129 @@
+{
+  "name": "money-mood",
+  "version": "1.0.0",
+  "description": "Money Mood - Your Financial Health at a Glance. Revolutionary personal finance app with dynamic colors and smart app icon that changes based on your budget status.",
+  "main": "node_modules/expo/AppEntry.js",
+  "keywords": [
+    "finance",
+    "budget",
+    "money",
+    "personal-finance",
+    "react-native",
+    "expo",
+    "dynamic-ui",
+    "app-icon",
+    "financial-health"
+  ],
+  "author": "Money Mood Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/money-mood.git"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "type-check": "tsc --noEmit",
+    "build:web": "expo export:web",
+    "build:ios": "expo build:ios",
+    "build:android": "expo build:android",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
+    "@react-navigation/bottom-tabs": "^7.4.2",
+    "@react-navigation/native": "^7.1.14",
+    "@react-navigation/stack": "^7.4.2",
+    "@reduxjs/toolkit": "^2.8.2",
+    "@react-native-async-storage/async-storage": "^1.23.1",
+    "expo": "~53.0.17",
+    "expo-local-authentication": "^16.0.5",
+    "expo-secure-store": "^14.2.3",
+    "expo-status-bar": "~2.2.3",
+    "expo-constants": "~17.0.3",
+    "react": "19.0.0",
+    "react-hook-form": "^7.60.0",
+    "react-native": "0.79.5",
+    "react-native-elements": "^3.4.3",
+    "react-native-vector-icons": "^10.2.0",
+    "react-redux": "^9.2.0",
+    "victory-native": "^41.17.4",
+    "yup": "^1.6.1",
+    "react-native-screens": "~4.11.1",
+    "react-native-safe-area-context": "5.4.0",
+    "react-dom": "19.0.0",
+    "react-native-web": "^0.20.0",
+    "@expo/metro-runtime": "~5.0.4",
+    "date-fns": "^3.6.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "@types/react-native": "^0.73.0",
+    "@types/lodash": "^4.17.13",
+    "@typescript-eslint/eslint-plugin": "^8.18.1",
+    "@typescript-eslint/parser": "^8.18.1",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react": "^7.37.2",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-native": "^4.1.0",
+    "jest": "^29.7.0",
+    "jest-expo": "~52.0.2",
+    "@testing-library/react-native": "^12.9.0",
+    "@testing-library/jest-native": "^5.4.3",
+    "typescript": "~5.8.3",
+    "prettier": "^3.4.2"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.(js|jsx|ts|tsx)",
+      "**/*.(test|spec).(js|jsx|ts|tsx)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}",
+      "!src/**/*.d.ts",
+      "!src/types/**/*"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 70,
+        "functions": 70,
+        "lines": 70,
+        "statements": 70
+      }
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "@react-native-community",
+      "@typescript-eslint/recommended"
+    ],
+    "rules": {
+      "react-native/no-unused-styles": "error",
+      "react-native/split-platform-components": "error",
+      "react-native/no-inline-styles": "warn",
+      "react-native/no-color-literals": "warn"
+    }
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 100,
+    "tabWidth": 2
+  },
+  "private": true
+}
+

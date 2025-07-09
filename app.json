@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "Money Mood",
+    "slug": "money-mood",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icons/money-mood-excellent.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.moneymood.app",
+      "buildNumber": "1.0.0",
+      "icon": "./assets/icons/money-mood-excellent.png",
+      "alternateIcons": {
+        "money-mood-excellent": {
+          "image": "./assets/icons/money-mood-excellent.png",
+          "prerendered": true
+        },
+        "money-mood-good": {
+          "image": "./assets/icons/money-mood-good.png",
+          "prerendered": true
+        },
+        "money-mood-warning": {
+          "image": "./assets/icons/money-mood-warning.png",
+          "prerendered": true
+        },
+        "money-mood-danger": {
+          "image": "./assets/icons/money-mood-danger.png",
+          "prerendered": true
+        },
+        "money-mood-over-budget": {
+          "image": "./assets/icons/money-mood-over-budget.png",
+          "prerendered": true
+        }
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icons/money-mood-excellent.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "package": "com.moneymood.app"
+    },
+    "web": {
+      "favicon": "./assets/icons/money-mood-excellent.png",
+      "name": "Money Mood - Your Financial Health at a Glance"
+    }
+  }
+}
+
