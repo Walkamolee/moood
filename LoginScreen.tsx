@@ -10,12 +10,13 @@ import {
   Platform,
   ScrollView,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, StackNavigationProp } from '@react-navigation/native';
+import { AuthStackParamList } from '../navigation/AuthNavigator';
 import { useAppDispatch, useAppSelector } from '../../store';
 import { loginUser, clearError } from '../../store/slices/authSlice';
 
 const LoginScreen: React.FC = () => {
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<StackNavigationProp<AuthStackParamList>>();
   const dispatch = useAppDispatch();
   const { isLoading, error } = useAppSelector((state) => state.auth);
 
@@ -30,8 +31,8 @@ const LoginScreen: React.FC = () => {
 
     try {
       await dispatch(loginUser({ email, password })).unwrap();
-    } catch (error: any) {
-      Alert.alert('Login Failed', error);
+    } catch (error: unknown) {
+      Alert.alert('Login Failed', (error as Error).message);
     }
   };
 
