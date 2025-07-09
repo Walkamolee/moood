@@ -5,7 +5,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
-import { usePlaidLink, PlaidLinkProps } from 'react-plaid-link';
+import { usePlaidLink, PlaidLinkProps, PlaidLinkOnSuccessMetadata, PlaidLinkOnEventMetadata, PlaidLinkOnExitMetadata } from 'react-plaid-link';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store';
 import { plaidService } from '../services/plaidService';
@@ -19,12 +19,12 @@ import { Permission } from '../types/financial';
  */
 interface PlaidLinkComponentProps {
   userId: string;
-  onSuccess: (publicToken: string, metadata: any) => void;
-  onError: (error: any) => void;
-  onExit?: (error?: any, metadata?: any) => void;
+  onSuccess: (publicToken: string, metadata: PlaidLinkOnSuccessMetadata) => void;
+  onError: (error: PlaidLinkOnEventMetadata) => void;
+  onExit?: (error?: PlaidLinkOnEventMetadata, metadata?: PlaidLinkOnExitMetadata) => void;
   buttonText?: string;
   disabled?: boolean;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
 }
 
 /**
@@ -71,7 +71,7 @@ export const PlaidLinkComponent: React.FC<PlaidLinkComponentProps> = ({
   /**
    * Handle successful Plaid Link connection
    */
-  async function handlePlaidSuccess(publicToken: string, metadata: any) {
+  async function handlePlaidSuccess(publicToken: string, metadata: PlaidLinkOnSuccessMetadata) {
     try {
       setConnectionStatus(ConnectionStatus.SUCCESS);
       
@@ -101,7 +101,7 @@ export const PlaidLinkComponent: React.FC<PlaidLinkComponentProps> = ({
   /**
    * Handle Plaid Link errors
    */
-  async function handlePlaidError(error: any) {
+  async function handlePlaidError(error: PlaidLinkOnEventMetadata) {
     console.error('Plaid Link error:', error);
     setConnectionStatus(ConnectionStatus.ERROR);
     setError(error.message || 'Failed to connect bank account');
@@ -127,7 +127,7 @@ export const PlaidLinkComponent: React.FC<PlaidLinkComponentProps> = ({
   /**
    * Handle Plaid Link exit
    */
-  function handlePlaidExit(error?: any, metadata?: any) {
+  function handlePlaidExit(error?: PlaidLinkOnEventMetadata, metadata?: PlaidLinkOnExitMetadata) {
     if (error) {
       console.log('Plaid Link exited with error:', error);
     } else {
