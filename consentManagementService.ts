@@ -596,7 +596,7 @@ export class ConsentManagementService {
     const revokedConsents = periodConsents.filter(c => c.status === ConsentStatus.REVOKED).length;
     const expiredConsents = periodConsents.filter(c => c.status === ConsentStatus.EXPIRED).length;
 
-    const consentsByCategory: Record<ConsentCategory, number> = {} as any;
+    const consentsByCategory: Record<ConsentCategory, number> = {};
     Object.values(ConsentCategory).forEach(category => {
       consentsByCategory[category] = 0;
     });
