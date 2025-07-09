@@ -224,7 +224,7 @@ export const getBudgetStatusMessage = (status: BudgetStatus): string => {
 
 
 // Calculate overall budget status from all budget periods
-export const calculateOverallBudgetStatus = (budgetPeriods: any[]): BudgetStatus => {
+export const calculateOverallBudgetStatus = (budgetPeriods: Array<{spentAmount: number, budgetedAmount: number}>): BudgetStatus => {
   if (budgetPeriods.length === 0) {
     return {
       status: 'good',
@@ -251,7 +251,7 @@ export const calculateOverallBudgetStatus = (budgetPeriods: any[]): BudgetStatus
 };
 
 // Get budget status for app icon updates
-export const getBudgetStatusForIcon = (budgetPeriods: any[]): {
+export const getBudgetStatusForIcon = (budgetPeriods: Array<{spentAmount: number, budgetedAmount: number}>): {
   color: string;
   status: string;
   percentage: number;
