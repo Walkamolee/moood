@@ -145,7 +145,7 @@ export class SecureStorage {
   /**
    * Store encrypted data with integrity verification
    */
-  public static async storeSecureData(key: string, data: any): Promise<void> {
+  public static async storeSecureData<T>(key: string, data: T): Promise<void> {
     try {
       const encryptedData = this.encryptionService.encryptObject(data);
       const hash = this.encryptionService.generateHash(encryptedData);
@@ -250,7 +250,7 @@ export class DataSanitizer {
   /**
    * Sanitize financial data for logging
    */
-  public static sanitizeForLogging(data: any): any {
+  public static sanitizeForLogging<T>(data: T): T {
     const encryptionService = EncryptionService.getInstance();
     
     if (typeof data === 'string') {
@@ -262,7 +262,7 @@ export class DataSanitizer {
     }
     
     if (typeof data === 'object' && data !== null) {
-      const sanitized: any = {};
+      const sanitized: Record<string, any> = {};
       
       for (const [key, value] of Object.entries(data)) {
         // List of sensitive field names that should be masked
@@ -296,13 +296,13 @@ export class DataSanitizer {
   /**
    * Remove sensitive fields from data before logging
    */
-  public static removeSensitiveFields(data: any): any {
+  public static removeSensitiveFields<T>(data: T): T {
     if (Array.isArray(data)) {
       return data.map(item => this.removeSensitiveFields(item));
     }
     
     if (typeof data === 'object' && data !== null) {
-      const cleaned: any = {};
+      const cleaned: Record<string, any> = {};
       
       for (const [key, value] of Object.entries(data)) {
         // List of sensitive field names that should be completely removed
