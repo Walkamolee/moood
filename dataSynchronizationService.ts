@@ -74,7 +74,7 @@ export interface SyncResult {
 export interface SyncError {
   code: string;
   message: string;
-  details?: any;
+  details?: unknown;
   timestamp: string;
   retryable: boolean;
 }
@@ -98,8 +98,8 @@ export interface DataConflict {
   recordId: string;
   userId: string;
   provider: FinancialProvider;
-  localData: any;
-  providerData: any;
+  localData: unknown;
+  providerData: unknown;
   conflictFields: string[];
   resolution?: ConflictResolution;
   resolvedAt?: string;
@@ -735,7 +735,7 @@ export class DataSynchronizationService {
         averageDuration: 0,
         totalRecordsProcessed: 0,
         totalErrors: 0,
-        providerStats: {} as any,
+        providerStats: {},
       };
     }
 
