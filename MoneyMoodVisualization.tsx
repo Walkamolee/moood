@@ -15,7 +15,7 @@ import { dynamicAppIconService } from '../services/dynamicAppIcon';
  */
 interface MoneyMoodVisualizationProps {
   userId: string;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
   size?: 'small' | 'medium' | 'large';
   showDetails?: boolean;
   animated?: boolean;
