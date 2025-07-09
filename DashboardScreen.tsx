@@ -18,9 +18,9 @@ const DashboardScreen: React.FC = () => {
   const budgetStatus = useBudgetStatusIndicator();
 
   useEffect(() => {
-    dispatch(fetchAccounts() as any);
-    dispatch(fetchTransactions() as any);
-    dispatch(fetchBudgets() as any);
+    dispatch(fetchAccounts());
+    dispatch(fetchTransactions());
+    dispatch(fetchBudgets());
   }, [dispatch]);
 
   const calculateNetWorth = () => {
