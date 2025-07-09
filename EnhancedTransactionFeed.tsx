@@ -27,7 +27,7 @@ import { calculateBudgetStatus, BudgetStatus } from '../utils/budgetColorSystem'
 interface EnhancedTransactionFeedProps {
   userId: string;
   accountId?: string;
-  style?: any;
+  style?: StyleProp<ViewStyle>;
   onTransactionPress?: (transaction: Transaction) => void;
   showCategories?: boolean;
   showMoodIndicators?: boolean;
@@ -216,7 +216,7 @@ const TransactionFilters: React.FC<{
 }> = ({ filters, onFiltersChange, categories }) => {
   const [showFilters, setShowFilters] = useState(false);
 
-  const updateFilter = (key: keyof TransactionFilters, value: any) => {
+  const updateFilter = (key: keyof TransactionFilters, value: TransactionFilters[typeof key]) => {
     onFiltersChange({ ...filters, [key]: value });
   };
 
